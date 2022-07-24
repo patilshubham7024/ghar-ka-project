@@ -21,8 +21,8 @@ import java.time.LocalDateTime;
 public class Expense implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "entity_id", nullable = false)
-    private Long entityId;
+    @Column(name = "expense_id", nullable = false)
+    private Long expenseId;
 
     @Column
     @NotNull
@@ -49,4 +49,8 @@ public class Expense implements Serializable {
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "account_id")
     private Account account;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "contactNumber")
+    private Profile profile;
 }

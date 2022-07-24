@@ -46,6 +46,10 @@ public class Credit implements Serializable {
     private RecordStatus recordStatus;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "account_id")
+    @JoinColumn(name = "accountId")
     private Account account;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "contactNumber")
+    private Profile profile;
 }

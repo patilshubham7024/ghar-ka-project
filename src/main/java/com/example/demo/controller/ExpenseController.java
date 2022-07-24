@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.dto.Expense;
+import com.example.demo.requests.AddExpense;
 import com.example.demo.service.ExpenseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -20,12 +21,13 @@ public class ExpenseController {
 
     @GetMapping("/see-expense")
     public ResponseEntity<?> seeExpense(@RequestParam Integer page,
-                                        @RequestParam Integer size){
-        return expenseService.seeExpense(page, size);
+                                        @RequestParam Integer size,
+                                        @RequestParam Long contactNumber){
+        return expenseService.seeExpense(page, size, contactNumber);
     }
 
     @PostMapping("/add-expense")
-    public String addExpense(@RequestBody Expense expense){
+    public String addExpense(@RequestBody AddExpense expense){
         return expenseService.addExpense(expense);
     }
 }
