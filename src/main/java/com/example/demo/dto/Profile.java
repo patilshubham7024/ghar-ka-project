@@ -10,12 +10,10 @@ import javax.validation.constraints.Min;
 import java.io.Serializable;
 import java.util.List;
 
-
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Data
 public class Profile implements Serializable {
     @Id
     @Column(name = "contact_number")
@@ -39,6 +37,9 @@ public class Profile implements Serializable {
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Expense> expenses;
+    
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "profile")
+    private Credential credentials;
 
     public Profile(Long contactNumber, String name, String username, String role) {
         this.contactNumber = contactNumber;
@@ -46,4 +47,60 @@ public class Profile implements Serializable {
         this.username = username;
         this.role = role;
     }
+
+	public Long getContactNumber() {
+		return contactNumber;
+	}
+
+	public void setContactNumber(Long contactNumber) {
+		this.contactNumber = contactNumber;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	public List<Account> getAccounts() {
+		return accounts;
+	}
+
+	public void setAccounts(List<Account> accounts) {
+		this.accounts = accounts;
+	}
+
+	public List<Credit> getCredits() {
+		return credits;
+	}
+
+	public void setCredits(List<Credit> credits) {
+		this.credits = credits;
+	}
+
+	public List<Expense> getExpenses() {
+		return expenses;
+	}
+
+	public void setExpenses(List<Expense> expenses) {
+		this.expenses = expenses;
+	}
 }

@@ -1,12 +1,12 @@
 package com.example.demo.controller;
 
-import com.example.demo.dto.Expense;
 import com.example.demo.requests.AddExpense;
 import com.example.demo.service.ExpenseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping("/expense")
 public class ExpenseController {
@@ -26,7 +26,11 @@ public class ExpenseController {
         return expenseService.seeExpense(page, size, contactNumber);
     }
 
-    @PostMapping("/add-expense")
+    @PostMapping(value = "/add-expense"
+//            , consumes = MediaType.APPLICATION_JSON_VALUE,
+//            produces = {MediaType.APPLICATION_ATOM_XML_VALUE, MediaType.APPLICATION_JSON_VALUE}
+    )
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public String addExpense(@RequestBody AddExpense expense){
         return expenseService.addExpense(expense);
     }

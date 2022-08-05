@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping("/credit")
 public class CreditController {
@@ -14,9 +15,9 @@ public class CreditController {
     @Autowired
     private CreditService creditService;
 
-    @GetMapping("/test")
+    @RequestMapping("/test")
     public String test(){
-        return "Yes, this is my ghar ka project.";
+        return "home";
     }
 
     @GetMapping("/see-credit")

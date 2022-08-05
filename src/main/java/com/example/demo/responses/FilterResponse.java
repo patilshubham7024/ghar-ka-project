@@ -24,4 +24,20 @@ public class FilterResponse implements Serializable {
         private void setMetaMessage(String msg) {
             this.meta.put("message", msg);
         }
+
+		public List<?> getData() {
+			return data;
+		}
+
+		public void setData(List<?> data) {
+			this.data = data;
+		}
+
+		public Map<String, String> getMeta() {
+			return meta;
+		}
+
+		public void setMeta(Map<String, String> meta) {
+			this.meta = meta;
+		}
 }

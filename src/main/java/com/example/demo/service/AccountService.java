@@ -49,12 +49,12 @@ public class AccountService {
         try{
             Account account = accountRepository.findById(accountId).get();
             return new ResponseEntity<>(
-            DashboardAccount.builder()
-                    .accountId(account.getAccountId())
-                    .accountName(account.getAccountName())
-                    .Balance(account.getAmount())
-                    .description(account.getDescription())
-                    .contactNumber(account.getProfile().getContactNumber()).build(),
+            		new DashboardAccount(
+            				account.getAccountId(),
+            				account.getAccountName(),
+            				account.getAmount(),
+            				account.getDescription(),
+            				account.getProfile().getContactNumber()),
                     HttpStatus.OK);
         }catch (Exception exception){
             return null;
@@ -77,12 +77,12 @@ public class AccountService {
             List<DashboardAccount> account = new ArrayList<>();
                     for(Account o : list){
                     account.add(
-                    DashboardAccount.builder()
-                            .accountId(o.getAccountId())
-                            .accountName(o.getAccountName())
-                            .Balance(o.getAmount()).build()
-
-                    );
+                    		new DashboardAccount(
+                    				o.getAccountId(),
+                    				o.getAccountName(),
+                    				o.getAmount(),
+                    				null,
+                    				null));
             }
             return account;
         }catch (Exception exception){

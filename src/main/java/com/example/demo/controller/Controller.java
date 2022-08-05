@@ -12,9 +12,9 @@ public class Controller {
     @Autowired
     private GharKiService gharKiService;
 
-    @GetMapping("/dashboard")
-    public ResponseEntity<?> dashboard(){
-        return gharKiService.dashboard();
-    }
+//    @GetMapping("/dashboard")
+//    public ResponseEntity<?> dashboard(){
+//        return gharKiService.dashboard();
+//    }
 
 }

@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 
 @Data
 @Builder
-@AllArgsConstructor
+//@AllArgsConstructor
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class DashboardAccount {
@@ -19,4 +19,15 @@ public class DashboardAccount {
     private BigDecimal Balance;
     private String description;
     private Long contactNumber;
+	public DashboardAccount(Long accountId, String accountName, BigDecimal balance, String description,
+			Long contactNumber) {
+		super();
+		this.accountId = accountId;
+		this.accountName = accountName;
+		Balance = balance;
+		this.description = description;
+		this.contactNumber = contactNumber;
+	}
+    
+    
 }

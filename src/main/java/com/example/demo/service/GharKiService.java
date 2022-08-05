@@ -9,17 +9,17 @@ import org.springframework.stereotype.Service;
 @Service
 public class GharKiService {
 
-    @Autowired
-    private CreditService creditService;
-
-    public ResponseEntity<?> dashboard() {
-        try {
-            FilterResponse filterResponse = new FilterResponse();
-//          ResponseEntity<?> list = creditService.seeCredit(0,50);
-
-        return new ResponseEntity<>(filterResponse, HttpStatus.OK);
-        } catch (Exception exception){
-            return new ResponseEntity<>("Something went wrong.", HttpStatus.BAD_REQUEST);
-        }
-    }
+//    @Autowired
+//    private CreditService creditService;
+//
+//    public ResponseEntity<?> dashboard() {
+//        try {
+//            FilterResponse filterResponse = new FilterResponse();
+////          ResponseEntity<?> list = creditService.seeCredit(0,50);
+//
+//        return new ResponseEntity<>(filterResponse, HttpStatus.OK);
+//        } catch (Exception exception){
+//            return new ResponseEntity<>("Something went wrong.", HttpStatus.BAD_REQUEST);
+//        }
+//    }
 }
