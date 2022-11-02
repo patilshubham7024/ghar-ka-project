@@ -7,10 +7,14 @@ import org.springframework.stereotype.Repository;
 
 import com.example.demo.dto.Credential;
 
+import java.util.Optional;
+
 @Repository
 public interface CredentialRepository extends JpaRepository<Credential, Integer>{
 
 	@Query("select c from Credential c where c.username= : username")
 	Credential getCredentialsByUsername(@Param("username")String username);
-	
+
+
+    Optional<Credential> findByUsername(String username);
 }

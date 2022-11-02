@@ -1,13 +1,13 @@
 package com.example.demo.service;
 
-import com.example.demo.responses.FilterResponse;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
 public class GharKiService {
+
+    public String test(){
+        return "Project is up.";
+    }
 
 //    @Autowired
 //    private CreditService creditService;

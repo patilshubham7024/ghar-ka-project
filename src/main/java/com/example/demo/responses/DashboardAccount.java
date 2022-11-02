@@ -1,7 +1,6 @@
 package com.example.demo.responses;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,7 +23,7 @@ public class DashboardAccount {
 		super();
 		this.accountId = accountId;
 		this.accountName = accountName;
-		Balance = balance;
+		this.Balance = balance;
 		this.description = description;
 		this.contactNumber = contactNumber;
 	}

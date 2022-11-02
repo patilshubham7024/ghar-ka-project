@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*", allowedHeaders = "*")
+@RequestMapping("/account")
 public class AccountController {
 
     @Autowired
@@ -26,7 +28,7 @@ public class AccountController {
     }
 
     @GetMapping("/get-all-accounts")
-    public List<DashboardAccount> getAllAccounts(@RequestParam Long contactNumber){
+    public List<DashboardAccount> getAllAccounts(@RequestParam("contactNumber") Long contactNumber){
         try {
             List<DashboardAccount> list = accountService.getAllAccounts(contactNumber);
               return list;

@@ -8,12 +8,14 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Data
 public class Profile implements Serializable {
     @Id
     @Column(name = "contact_number")
@@ -29,7 +31,7 @@ public class Profile implements Serializable {
     @Column
     private String role;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Account> accounts;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -38,14 +40,15 @@ public class Profile implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Expense> expenses;
     
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "profile")
-    private Credential credentials;
+	@Transient
+	private LocalDateTime statusOn;
 
-    public Profile(Long contactNumber, String name, String username, String role) {
+    public Profile(Long contactNumber, String name, String username, String role, LocalDateTime statusOn) {
         this.contactNumber = contactNumber;
         this.name = name;
         this.username = username;
         this.role = role;
+		this.statusOn=statusOn;
     }
 
 	public Long getContactNumber() {

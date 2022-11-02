@@ -23,7 +23,7 @@ public class Account implements Serializable {
     @Column
     private String accountName;
 
-    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinColumn(name = "contactNumber")
     private Profile profile;
 

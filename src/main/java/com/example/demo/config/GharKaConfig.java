@@ -1,7 +1,5 @@
 package com.example.demo.config;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -43,5 +41,6 @@ public class GharKaConfig extends WebSecurityConfigurerAdapter{
 	public void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests().antMatchers("/admin/**").hasRole("admin");
 //		.antMatchers(null)
+		http.cors().and().csrf().disable();
 	}
 }
